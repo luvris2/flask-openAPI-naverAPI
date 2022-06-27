@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+ref/config.py
+ref/mysql_connection.py
+lang_trans.py
