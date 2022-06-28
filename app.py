@@ -2,6 +2,7 @@ from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_restful import Api
 from ref.config import Config
+from resources.naver_search import Searchesource
 from resources.papago import PapagoResource
 
 # API 서버를 구축하기 위한 기본 구조
@@ -24,6 +25,7 @@ api = Api(app)
 
 # 경로와 리소스(api코드) 연결
 api.add_resource(PapagoResource, '/papago')
+api.add_resource(Searchesource, '/search')
 
 if __name__ == '__main__' :
     app.run()

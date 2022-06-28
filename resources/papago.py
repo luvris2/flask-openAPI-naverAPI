@@ -10,8 +10,8 @@ class PapagoResource(Resource):
         # 헤더 설정, 부여받은 파파고 API키 입력
         headers = {
             "Content-Type" : "application/x-www-form-urlencoded; charset=UTF-8",
-            "X-Naver-Client-Id" : Config.client_id,
-            "X-Naver-Client-Secret" : Config.client_secret,
+            "X-Naver-Client-Id" : Config.naver_papago_client_id,
+            "X-Naver-Client-Secret" : Config.naver_papago_client_secret,
         }
 
         # 파라미터로 번역 할 텍스트 받기
@@ -25,10 +25,9 @@ class PapagoResource(Resource):
         }
 
         # 데이터를 보낼 URL, 데이터, API키가 담긴 헤더 정보
-        res = requests.post(Config.URL, data=data, headers=headers)
+        res = requests.post(Config.naver_papago_url, data=data, headers=headers)
         res = res.json()
         res['message']['result']['srcLangType']
-        print(res)
 
         return {
             "원본언어" : res['message']['result']['srcLangType'],

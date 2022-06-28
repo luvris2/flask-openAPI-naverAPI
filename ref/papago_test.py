@@ -8,8 +8,8 @@ URL = "https://openapi.naver.com/v1/papago/n2mt"
 # 헤더 설정, 부여받은 파파고 API키 입력
 headers = {
     "Content-Type" : "application/x-www-form-urlencoded; charset=UTF-8",
-    "X-Naver-Client-Id" : Config.client_id,
-    "X-Naver-Client-Secret" : Config.client_secret,
+    "X-Naver-Client-Id" : Config.naver_papago_client_id,
+    "X-Naver-Client-Secret" : Config.naver_papago_client_secret,
 }
 
 # source=원본언어, target=목적언어, text=번역할텍스트(최대 5000자)
@@ -22,4 +22,5 @@ data = {
 # 데이터를 보낼 URL, 데이터, API키가 담긴 헤더 정보
 res = requests.post(URL, data=data, headers=headers)
 
+# 번역 결과
 print(res.json()['message']['result']['translatedText'])
