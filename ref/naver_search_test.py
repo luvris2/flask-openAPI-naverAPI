@@ -19,7 +19,7 @@ data = {
     "query" : "마녀"
 }
 
-res = requests.get(Config.naver_search_url, params=data, headers=headers)
+res = requests.get(Config.naver_search_news_url, params=data, headers=headers)
 
 res = res.json()
 

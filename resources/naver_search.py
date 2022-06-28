@@ -29,10 +29,10 @@ class Searchesource(Resource):
         }
 
         res = requests.get(Config.naver_search_news_url, params=data, headers=headers)
-
-        print(res.json())
         res = res.json()
 
         return {
-            "검색결과" : res
-        }
+            "검색결과" : res,
+            "출력건수" : res['display'],
+            "검색내용" : res['items']
+        }, 200
